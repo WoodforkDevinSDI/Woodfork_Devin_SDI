@@ -13,7 +13,7 @@ var vgConsole;
 var totalGames;
 var totalFunds;
 var costOfGames;
-
+var tax = 9;
 vgConsole = prompt ("What is the price of the game console?");
     while (vgConsole === "" || isNaN (vgConsole)){
         vgConsole = prompt("Please enter the correct price of the console");
@@ -29,3 +29,18 @@ totalFunds = prompt ("How much money do you have in total?");
 costOfGames = prompt ("How much are games at the store?");
     while (costOfGames === "" || isNaN (costOfGames)){
     }
+
+
+
+
+
+function doTheMath (console, games, funds, cost, tax){
+    var customerOrder = Number (console + (games * cost) + tax);
+    var customerTotal = (funds);
+    var customerAnswer;
+
+
+    customerAnswer = ((customerOrder <= customerTotal) ? "You have enough!" : "You do not have enough!");
+
+    return customerAnswer
+}
