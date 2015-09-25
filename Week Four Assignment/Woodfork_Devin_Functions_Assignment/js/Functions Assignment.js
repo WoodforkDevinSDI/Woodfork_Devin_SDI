@@ -13,10 +13,10 @@ var vgConsole;
 var totalGames;
 var totalFunds;
 var costOfGames;
-var taxNumber = 9;
 
 
-vgConsole = prompt ("What is the price of the game console?");
+
+vgConsole = prompt ("Let's get the purchase amount before taxes for a new game console and games! \n What is the price of the game console?");
     while (vgConsole === "" || isNaN (vgConsole)){
         vgConsole = prompt("Please enter the correct price of the console");
     }
@@ -33,18 +33,29 @@ costOfGames = prompt ("How much are games at the store?");
     }
 
 
-var customerOption = doTheMath (vgConsole, totalGames, totalFunds, costOfGames, taxNumber);
+var customerOption = doTheMath (vgConsole, totalGames, totalFunds, costOfGames);
 
-    console.log ("With only " + totalFunds + " and wanting " + totalGames + " with your console at " + vgConsole + " " + customerOption);
+    console.log ("With only $" + totalFunds + " and wanting " + totalGames + " games with your console at $" + vgConsole + " for the console " + customerOption);
 
-function doTheMath (console, games, funds, cost, tax){
-    var customerOrder = Number (console + (games * cost) + tax);
+
+function doTheMath (console, games, funds, cost){
+    var customerOrder = (Number (console) + Number (games * cost));
     var customerTotal = (funds);
     var customerAnswer;
 
 
-    customerAnswer = ((customerOrder <= customerTotal) ? "You have enough money!" : "You do not have enough money!");
 
-    return customerAnswer;
+    customerAnswer = ((customerOrder <= customerTotal) ? "You have enough money before taxes with a total of " + customerOrder : "You do not have enough money before taxes! " + customerOrder);
+
+    return (customerAnswer) ;
+
 }
 
+var getTaxes = function (num1, num2){
+    num1 = prompt ("Let's get the total with taxes. \n What is your total before taxes?");
+    num2 = prompt ("What is the total amount of taxes in your state as a decimal?");
+    var total =  Number ((num1 * num2) + Number (num1)) ;
+    return (total);
+};
+var totalReturned = getTaxes ();
+console.log ("Your total after taxes is :" + totalReturned);
